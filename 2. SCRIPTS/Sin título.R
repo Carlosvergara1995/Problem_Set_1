@@ -10,7 +10,4 @@ chunk_3 <- read_html('https://ignaciomsarmiento.github.io/GEIH2018_sample/pages/
 chunk_4 <- read_html('https://ignaciomsarmiento.github.io/GEIH2018_sample/pages/geih_page_4.html')
 chunk_5 <- read_html('https://ignaciomsarmiento.github.io/GEIH2018_sample/pages/geih_page_5.html')
 
-merge(x = df_1, y = df_2, all = TRUE)
 
-
-df_combined <- rbind(, df2)
