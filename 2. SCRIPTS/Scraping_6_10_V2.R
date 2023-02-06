@@ -16,9 +16,16 @@ for (i in 6:10) {
     html_table() %>% .[[1]]
   data <- rbind.data.frame(data, tablas)
 }
+
+
+data<-(data)[-1]
+
+data <- as_tibble(data)
+saveRDS(data, file = "data,rds")
+
 view(data)
 
-data1<-(data)[-1]
 
-data2 <- as_tibble(data1)
-saveRDS(data2, file = "data2,rds")
+
+
+
