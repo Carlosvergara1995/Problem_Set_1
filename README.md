@@ -17,7 +17,7 @@ Alexandra Rizo -
 Código de Estudiante No. 202210094
 
 Danna Camila Bolaños Nuñez- 
-Código de Estudiante No. 
+Código de Estudiante No. 201911675
 
 Héctor - 
 Código de Estudiante No. 
