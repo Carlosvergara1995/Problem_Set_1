@@ -27,6 +27,7 @@ data<-(data %>%
 
 #Analisamos la estructura de la base 
 glimpse(data)
+#se evidencia un gran porcentaje de NA 
 
 #******************** Analisis na *********************
 
@@ -60,8 +61,20 @@ BoxplotWage <- ggplot(df, aes(x = "Salarios", y = y_ingLab_m_ha)) +
 
 GrafDispercion <- plot(df$y_ingLab_m_ha,pch=19,col="#FFF6F5")
 
+#****Contamos los valores atipicos
+
+df = df %>% 
+  mutate(y_ingLab_m_ha_out = ifelse(test = y_ingLab_m_ha > limite_punto1, 
+                                    yes = 1, 
+                                    no = 0))
+table(df_p$y_ingLab_m_ha_out)
+
+df_sin_atipicos<-(df %>%
+                    filter(y_ingLab_m_ha <= limite_punto1))
+
+
 #normalisamos los datos aplicando log
-lgwage <-log(df$y_salary_m_hu)
+lgwage <-log(df$y_ingLab_m_ha)
 df<-cbind(df,lgwage)
 
 
@@ -72,19 +85,28 @@ BoxplotWage <- ggplot(df, aes(x = "Salarios", y = y_ingLab_m_ha)) +
 
 GrafDispercion <- plot(lgwage,pch=19,col="#FFF6F5")
 
+#Contamos los valores atipicos para verificar su normalización 
 
-# descriptive statistics
+df = df %>% 
+  mutate(y_ingLab_m_ha_out = ifelse(test = y_ingLab_m_ha > limite_punto1, 
+                                    yes = 1, 
+                                    no = 0))
+table(df_p$y_ingLab_m_ha_out)
+
+df_sin_atipicos<-(df %>%
+                    filter(y_ingLab_m_ha <= limite_punto1))
+
+# estadisticas en español 
 
 
-#divide the base into train and test
+#divideimos la base en train y test
 set.seed(123)
 
 id_train <- sample(1:nrow(wage.features.of.interest), size = 0.7*nrow(df2), 
                    replace = FALSE)
 
-train <- wage.features.of.interest[id_train, ]
-test  <- wage.features.of.interest[-id_train, ]
-
+train <- wage.features.of.interest[id_train,]
+test  <- wage.features.of.interest[-id_train,]
 
 
 x= data %>% select (wage.features.of.interest)
