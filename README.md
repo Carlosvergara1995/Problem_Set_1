@@ -32,13 +32,7 @@ En esta carpeta, se encuentran los documentos generales del taller, divididos en
 
 ## 2. SCRIPTS
 
-Dentro de esta carpeta, se encuentran los scripts relacionados con: 
+Dentro de esta carpeta, se encuentran los scripts relacionados con el taller.
 
-1. Limpieza y scraping de datos. 
 
-2. (...)
-
-## 3. STORES
-
-## 4. VIEWS
 
